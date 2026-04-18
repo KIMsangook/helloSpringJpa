@@ -13,3 +13,4 @@ kr\ac\hansung\cse\repository\CategoryRepository.class
 kr\ac\hansung\cse\exception\ProductNotFoundException.class
 kr\ac\hansung\cse\model\ProductForm.class
 kr\ac\hansung\cse\config\DbConfig.class
+kr\ac\hansung\cse\model\CategoryForm.class

@@ -5,6 +5,7 @@ C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\controller\ProductController.j
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\exception\GlobalExceptionHandler.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\exception\ProductNotFoundException.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\model\Category.java
+C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\model\CategoryForm.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\model\Product.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\model\ProductDetail.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\model\ProductForm.java
