@@ -132,7 +132,10 @@
             <button type="submit" class="btn-submit">수정 완료</button>
         </div>
 
+
     </form>
 
+
+    <p th:text="${'실습 수행: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss') + ' | 학번:2171048 | 이름: 김상욱'}"></p>
 </body>
 </html>

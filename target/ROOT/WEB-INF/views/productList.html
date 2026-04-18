@@ -80,7 +80,7 @@
                        th:href="@{/products/{id}(id=${product.id})}"
                        th:text="${product.name}">상품명</a>
                 </td>
-                <td th:text="${product.category}">카테고리</td>
+                <td th:text="${product.category != null ? product.category.name : '-'}">카테고리</td>
 
                 <!--
                     #numbers.formatDecimal(): Thymeleaf 내장 유틸리티 객체
@@ -114,11 +114,15 @@
                           style="display: inline;"
                           onsubmit="return confirm('정말 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.');">
                         <button type="submit" class="btn-delete">삭제</button>
+
+
                     </form>
                 </td>
             </tr>
         </tbody>
     </table>
+
+    <p th:text="${'실습 수행: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss') + ' | 학번:2171048 | 이름: 김상욱'}"></p>
 
 </body>
 </html>
