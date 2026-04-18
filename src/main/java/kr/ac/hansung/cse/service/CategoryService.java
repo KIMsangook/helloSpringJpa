@@ -30,13 +30,6 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    /**
-     * ID로 상품 조회
-     * Optional을 그대로 반환하여 Controller가 null 처리를 명시적으로 하도록 강제합니다.
-     */
-    public Optional<Product> getProductById(Long id) {
-        return productRepository.findById(id);
-    }
 
     /**
      * 새 카테고리 등록
