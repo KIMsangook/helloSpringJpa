@@ -1,12 +1,14 @@
 package kr.ac.hansung.cse.service;
 
 
+import kr.ac.hansung.cse.exception.DuplicateCategoryException;
 import kr.ac.hansung.cse.model.Category;
 import kr.ac.hansung.cse.model.Product;
 import kr.ac.hansung.cse.repository.CategoryRepository;
 import kr.ac.hansung.cse.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true) // 클래스 기본값: 읽기 전용 트랜잭션
@@ -26,9 +28,10 @@ public class CategoryService {
      * 모든 카테고리 조회
      * readOnly = true (클래스 레벨 설정 상속): 읽기 전용 트랜잭션
      */
-    public List<Product> getAllCategory() {
-        return categoryRepository.findAll();
-    }
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll(); }
+
+
 
 
     /**

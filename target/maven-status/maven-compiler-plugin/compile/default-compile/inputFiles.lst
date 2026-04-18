@@ -1,7 +1,9 @@
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\config\DbConfig.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\config\WebAppInitializer.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\config\WebConfig.java
+C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\controller\CategoryController.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\controller\ProductController.java
+C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\exception\DuplicateCategoryException.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\exception\GlobalExceptionHandler.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\exception\ProductNotFoundException.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\model\Category.java
@@ -13,4 +15,5 @@ C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\model\Tag.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\repository\CategoryRepository.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\repository\ProductRepository.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\repository\TagRepository.java
+C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\service\CategoryService.java
 C:\helloSpringJpa\src\main\java\kr\ac\hansung\cse\service\ProductService.java

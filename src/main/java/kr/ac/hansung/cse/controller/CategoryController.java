@@ -2,6 +2,7 @@ package kr.ac.hansung.cse.controller;
 
 
 import jakarta.validation.Valid;
+import kr.ac.hansung.cse.exception.DuplicateCategoryException;
 import kr.ac.hansung.cse.model.Category;
 import kr.ac.hansung.cse.model.CategoryForm;
 import kr.ac.hansung.cse.service.CategoryService;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import java.util.List;
 
 @Controller
 @RequestMapping("/categories")
@@ -29,7 +31,7 @@ public class CategoryController {
 
     @GetMapping
     public String listCategories(Model model) {
-        List<Category> categories = categoryService.getAllCategory();
+        List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
         return "categoryList";
     }
@@ -51,8 +53,8 @@ public class CategoryController {
      */
     @GetMapping("/create")
     public String showCreateForm(Model model) {
-        model.addAttribute("CategoryForm", new CategoryForm());
-        return "CategoryForm";
+        model.addAttribute("categoryForm", new CategoryForm());
+        return "categoryForm";
     }
 
     // ─────────────────────────────────────────────────────────────────
@@ -82,7 +84,7 @@ public class CategoryController {
      *   - 오류 없음 → 서비스 호출 → 리다이렉트 (PRG 패턴)
      */
     @PostMapping("/create")
-    public String createCategory(@Valid @ModelAttribute("CategoryForm") CategoryForm categoryForm,
+    public String createCategory(@Valid @ModelAttribute("categoryForm") CategoryForm categoryForm,
                                 BindingResult bindingResult,
                                 RedirectAttributes redirectAttributes) {
 
@@ -90,7 +92,7 @@ public class CategoryController {
         // bindingResult는 CategoryForm 함께 Model에 자동으로 포함되므로
         // Thymeleaf에서 th:errors로 오류 메시지에 접근할 수 있습니다.
         if (bindingResult.hasErrors()) {
-            return "CategoryForm"; // 오류가 있는 채로 폼 뷰 재표시
+            return "categoryForm"; // 오류가 있는 채로 폼 뷰 재표시
         }
 
         //검증 완료시 등록
