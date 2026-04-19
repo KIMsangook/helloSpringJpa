@@ -37,6 +37,29 @@
 
     <h1>상품 목록</h1>
 
+    <!-- 검색 폼 -->
+    <form th:action="@{/products}" method="get" style="margin: 20px 0 16px; display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+        <input type="text"
+               name="keyword"
+               th:value="${keyword}"
+               placeholder="상품명 검색"
+               style="padding:8px 12px; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+
+        <select name="categoryId" style="padding:8px 12px; border:1px solid #ccc; border-radius:4px;">
+            <option value="">-- 전체 카테고리 --</option>
+            <option th:each="cat : ${categories}"
+                    th:value="${cat.id}"
+                    th:text="${cat.name}"
+                    th:selected="${cat.id == categoryId}">
+            </option>
+        </select>
+
+        <button type="submit" class="btn">검색</button>
+    </form>
+
+    <p class="empty-msg" th:if="${#lists.isEmpty(products)}">
+        검색 결과가 없습니다.
+    </p>
     <!--
         th:if="${successMessage}":
         Model에 successMessage 속성이 있을 때만 이 div를 렌더링합니다.

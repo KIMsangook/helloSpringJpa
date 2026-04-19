@@ -133,22 +133,21 @@ public class ProductRepository {
     }
 
     public List<Product> findByNameContaining(String keyword){
-        return em.createQuery(
-                        "SELECT p FROM Product p WHERE p.name LIKE :keyword",
+        return entityManager.createQuery(
+                        "SELECT p FROM Product p LEFT JOIN FETCH p.category " +
+                                "WHERE p.name LIKE :keyword ORDER BY p.id ASC",
                         Product.class)
-                // "%" + keyword + "%"  →  부분 일치 검색 (앞뒤에 % 붙이는 것이 핵심!)
                 .setParameter("keyword", "%" + keyword + "%")
                 .getResultList();
-
     }
 
     public List<Product> findByCategoryId(Long categoryId){
-        return em.createQuery(
-                        "SELECT p FROM Product p WHERE p.category.id = :cid",
+        return entityManager.createQuery(
+                        "SELECT p FROM Product p LEFT JOIN FETCH p.category " +
+                                "WHERE p.category.id = :cid ORDER BY p.id ASC",
                         Product.class)
                 .setParameter("cid", categoryId)
                 .getResultList();
-
     }
 
 }

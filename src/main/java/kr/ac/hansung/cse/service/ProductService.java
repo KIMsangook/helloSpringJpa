@@ -91,14 +91,14 @@ public class ProductService {
      * 새 상품 등록
      *
      * @Transactional: readOnly 기본값을 false로 오버라이드합니다.
-     *                 쓰기 작업에는 반드시 readOnly = false가 필요합니다.
-     *                 DB 변경 작업이 포함되므로 트랜잭션이 필수입니다.
-     *
+     * 쓰기 작업에는 반드시 readOnly = false가 필요합니다.
+     * DB 변경 작업이 포함되므로 트랜잭션이 필수입니다.
+     * <p>
      * [비즈니스 규칙 예시]
      * 실제 프로젝트에서는 이 위치에 비즈니스 규칙을 추가합니다:
-     *   - 가격이 0 이하이면 예외 발생
-     *   - 이미 존재하는 상품명이면 예외 발생
-     *   - 재고 관련 로직 처리 등
+     * - 가격이 0 이하이면 예외 발생
+     * - 이미 존재하는 상품명이면 예외 발생
+     * - 재고 관련 로직 처리 등
      */
     @Transactional // readOnly = false (쓰기 가능)
     public Product createProduct(Product product) {
@@ -111,12 +111,12 @@ public class ProductService {
 
     /**
      * 상품 수정
-     *
+     * <p>
      * 서비스 레이어에서도 가격을 검증합니다.
      * 웹 레이어(Bean Validation)와 서비스 레이어 양쪽에서 검증하는 이유:
-     *   - 방어적 프로그래밍(Defense in Depth): 웹 계층을 우회하는 API 호출이나
-     *     테스트 코드에서도 비즈니스 규칙이 항상 보장됩니다.
-     *   - 서비스는 "어떤 클라이언트(웹/API/배치 등)가 호출해도" 유효성을 보장해야 합니다.
+     * - 방어적 프로그래밍(Defense in Depth): 웹 계층을 우회하는 API 호출이나
+     * 테스트 코드에서도 비즈니스 규칙이 항상 보장됩니다.
+     * - 서비스는 "어떤 클라이언트(웹/API/배치 등)가 호출해도" 유효성을 보장해야 합니다.
      */
     @Transactional
     public Product updateProduct(Product product) {
@@ -142,3 +142,4 @@ public class ProductService {
     public List<Product> searchByCategory(Long categoryId) {
         return productRepository.findByCategoryId(categoryId);
     }
+}

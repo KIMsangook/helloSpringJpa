@@ -29,7 +29,8 @@ public class CategoryService {
      * readOnly = true (클래스 레벨 설정 상속): 읽기 전용 트랜잭션
      */
     public List<Category> getAllCategories() {
-        return categoryRepository.findAll(); }
+        return categoryRepository.findAll();
+    }
 
 
 
